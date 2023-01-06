@@ -22,10 +22,11 @@ class MHZCO2
 {
 public:
   MHZCO2();
+  //  Stream is either a HW or SW serial.
   void     begin(Stream * str);
   uint32_t uptime();
 
-  //  PPM = 2000, 3000, 5000, 10000 ?
+  //  PPM = 2000, 5000, 10000 (other values unknown)
   //  check datasheet 
   void     setPPM(uint16_t PPM);
   uint16_t getPPM();
@@ -39,8 +40,8 @@ public:
   int      getMinCO2();
 
   //  CALIBRATION
+  //  USE WITH CARE => READ DATASHEET!
   void     calibrateZero();
-  //  span = .... (check datasheet)
   void     calibrateSpan(uint16_t span);
   void     calibrateAuto(bool mode = true);
 
@@ -84,13 +85,11 @@ public:
   MHZ19B();
 };
 
-
 class MHZ19C : public MHZCO2
 {
 public:
   MHZ19C();
 };
-
 
 class MHZ19D : public MHZCO2
 {

@@ -25,17 +25,15 @@ Reference: user manual MHZ129B 2019-04-25 version 1.4
 
 This list is not verified although these should be compatible.
 
-|  type      |  range       | precision  |  notes  |
-|:-----------|:------------:|:----------:|:--------|
-|  MHZ1311A  |  400.. 2000  | 50ppm + 5% | energy saving version
-|  MHZ19     |  400.. 2000  | 50ppm + 5% | 
-|  MHZ19B    |  400.. 2000  | 50ppm + 3% | 
-|  MHZ19C    |  400.. 2000  | 50ppm + 5% | 
-|  MHZ19D    |  400.. 2000  | 50ppm + 5% | 
-|  MHZ19E    |  400.. 2000  | 50ppm + 5% |
-|  MTP40F    |              |            | no info yet
-
-All sensors are also available in the 5000 and 10000 range.
+|  type      | precision  |  notes  |
+|:-----------|:----------:|:--------|
+|  MHZ1311A  | 50ppm + 5% | energy saving version
+|  MHZ19     | 50ppm + 5% | 
+|  MHZ19B    | 50ppm + 3% | test device
+|  MHZ19C    | 50ppm + 5% | 
+|  MHZ19D    | 50ppm + 5% | 
+|  MHZ19E    | 50ppm + 5% |
+|  MTP40F    |            |
 
 Note: The calibration of the MHZ1311A is different than MHZ19x series
 
@@ -45,6 +43,7 @@ If there are compatible devices missing in this list, please let me know.
 
 - https://emariete.com/en/sensor-co2-mh-z19b/
 - https://emariete.com/en/sensor-co2-low-consumption-mh-z1311a-winsen/
+- https://revspace.nl/MHZ19
 
 
 ## Connection
@@ -57,27 +56,35 @@ If there are compatible devices missing in this list, please let me know.
 #### Constructor
 
 - **MHZCO2()** base class constructor.
-- **MHZ19B()** constructor.
+- **MHZ19()** constructor. Also 19B,C,D,E
 - **MTP40F()** constructor.
+- **void begin(Stream \* str)** set the Serial port to use, e.g Serial1.
+- **uint32_t uptime()** returns milliseconds since 'instantiation'.
+
 
 #### Range
 
-- **void setPPM(uint16_t PPM)**
-- **uint16_t getPPM()**
+- **void setPPM(uint16_t PPM)** PPM = 2000, 5000, 10000
+- **uint16_t getPPM()** returns (cached) PPM value
+
 
 #### Measure
 
-- **int measure()**
-- **uint32_t lastMeasurement()**
-- **int getCO2()**
-- **int getTemperature()**
-- **int getAccuracy()**
-- **int getMinCO2()**
+- **int measure()** workhorse, send command to read the sensor.
+- **uint32_t lastMeasurement()** timestamp in millis of last measurement
+- **int getCO2()** returns CO2 PPM last measurement.
+- **int getTemperature()** returns temperature last measurement.
+- **int getAccuracy()** returns accuracy last measurement.
+- **int getMinCO2()** returns minCO2 last measurement.
+
+The latter two might not be supported by all MH sensors.
 
 #### Calibration
 
-- **void calibrateZero()**
-- **void calibrateSpan(uint16_t span)**
+**WARNING:** use with care, read datasheet, these commands may disrupt your sensor.
+
+- **void calibrateZero()** Only use when sensor is at least 30 minutes in **400** PPM environment.
+- **void calibrateSpan(uint16_t span)** Only use when sensor is at least 30 minutes in **2000** PPM environment.
 - **void calibrateAuto(bool mode = true)**
 
 
@@ -85,16 +92,13 @@ If there are compatible devices missing in this list, please let me know.
 
 #### Must
 - improve documentation
-- buy hardware MHZ19B / ...
+- buy hardware MHZ19B / MHZ19C
 - test with hardware
 - verify checksum
 - verify timeout
-- investigate parameters range (span & PPM)
-
 
 #### Should 
 - plotter example
-- define list of compatibles.
 
 
 #### Could
