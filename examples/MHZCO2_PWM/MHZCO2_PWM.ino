@@ -15,6 +15,8 @@
 
 #include "Arduino.h"
 
+//  adjust to calibrate.
+const float MAX_CONCENTRATION = 2000.0;
 
 volatile uint16_t width;
 
@@ -23,18 +25,18 @@ void IRQ()
 {
   static uint32_t start = 0;
   int v = digitalRead(3);
-  if (v == HIGH) start = micros();
-  else width = micros() - start;
+  if (v == HIGH) start = millis();
+  else width = millis() - start;
 }
 
 
 uint16_t PWM_conc()
 {
   noInterrupts();
-  uint16_t ww = width;
+  uint16_t TimeHigh = width;  //  milliseconds
   interrupts();
 
-  uint16_t concentration =  round(ww * 2000.0 / 20000.0);  // TODO magic nrs.
+  uint16_t concentration = round(((TimeHigh - 2) * MAX_CONCENTRATION) * 0.001);
   return concentration;
 }
 
