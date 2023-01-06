@@ -182,32 +182,25 @@ MHZ1311A::MHZ1311A() : MHZCO2()
 {
 }
 
-
 MHZ19::MHZ19() : MHZCO2()
 {
 }
 
-/*
 MHZ19B::MHZ19B() : MHZCO2()
 {
 }
-
 
 MHZ19C::MHZ19C() : MHZCO2()
 {
 }
 
-
 MHZ19D::MHZ19D() : MHZCO2()
 {
 }
 
-
 MHZ19E::MHZ19E() : MHZCO2()
 {
 }
-*/
-
 
 MTP40F::MTP40F() : MHZCO2()
 {

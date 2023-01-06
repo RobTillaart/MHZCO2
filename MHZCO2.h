@@ -25,7 +25,8 @@ public:
   void     begin(Stream * str);
   uint32_t uptime();
 
-  //  PPM = 1000 - 100000 (check datasheet)
+  //  PPM = 2000, 3000, 5000, 10000 ?
+  //  check datasheet 
   void     setPPM(uint16_t PPM);
   uint16_t getPPM();
 
@@ -77,7 +78,6 @@ public:
   MHZ19();
 };
 
-/*
 class MHZ19B : public MHZCO2
 {
 public:
@@ -103,7 +103,6 @@ class MHZ19E : public MHZCO2
 public:
   MHZ19E();
 };
-*/
 
 class MTP40F : public MHZCO2
 {
