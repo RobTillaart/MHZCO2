@@ -28,22 +28,14 @@ This list is not verified although these should be compatible.
 |  type      |  range       | precision  |  notes  |
 |:-----------|:------------:|:----------:|:--------|
 |  MHZ1311A  |  400.. 2000  | 50ppm + 5% | energy saving version
-|  MHZ1311A  |  400.. 5000  | 50ppm + 5% | energy saving version
-|  MHZ1311A  |  400..10000  | 50ppm + 5% | energy saving version
 |  MHZ19     |  400.. 2000  | 50ppm + 5% | 
-|  MHZ19     |  400.. 5000  | 50ppm + 5% | 
 |  MHZ19B    |  400.. 2000  | 50ppm + 3% | 
-|  MHZ19B    |  400.. 5000  | 50ppm + 3% | 
-|  MHZ19B    |  400..10000  | 50ppm + 3% | 
 |  MHZ19C    |  400.. 2000  | 50ppm + 5% | 
-|  MHZ19C    |  400.. 5000  | 50ppm + 5% | 
-|  MHZ19C    |  400..10000  | 50ppm + 5% | 
 |  MHZ19D    |  400.. 2000  | 50ppm + 5% | 
-|  MHZ19D    |  400.. 5000  | 50ppm + 5% | 
-|  MHZ19D    |  400..10000  | 50ppm + 5% | 
-|  MHZ19E    |  400.. 2000  | 50ppm + 5% | 
-|  MHZ19E    |  400.. 5000  | 50ppm + 5% | 
-|  MHZ19E    |  400..10000  | 50ppm + 5% | 
+|  MHZ19E    |  400.. 2000  | 50ppm + 5% |
+|  MTP40F    |              |            | no info yet
+
+All sensors are also available in the 5000 and 10000 range.
 
 Note: The calibration of the MHZ1311A is different than MHZ19x series
 

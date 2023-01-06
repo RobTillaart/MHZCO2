@@ -77,7 +77,7 @@ public:
   MHZ19();
 };
 
-
+/*
 class MHZ19B : public MHZCO2
 {
 public:
@@ -103,7 +103,7 @@ class MHZ19E : public MHZCO2
 public:
   MHZ19E();
 };
-
+*/
 
 class MTP40F : public MHZCO2
 {

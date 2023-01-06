@@ -187,7 +187,7 @@ MHZ19::MHZ19() : MHZCO2()
 {
 }
 
-
+/*
 MHZ19B::MHZ19B() : MHZCO2()
 {
 }
@@ -206,6 +206,7 @@ MHZ19D::MHZ19D() : MHZCO2()
 MHZ19E::MHZ19E() : MHZCO2()
 {
 }
+*/
 
 
 MTP40F::MTP40F() : MHZCO2()
