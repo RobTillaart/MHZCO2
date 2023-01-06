@@ -64,10 +64,44 @@ protected:
 //
 //  DERIVED CLASSES
 //
+class MHZ1311A : public MHZCO2
+{
+public:
+  MHZ1311A();
+};
+
+
+class MHZ19 : public MHZCO2
+{
+public:
+  MHZ19();
+};
+
+
 class MHZ19B : public MHZCO2
 {
 public:
   MHZ19B();
+};
+
+
+class MHZ19C : public MHZCO2
+{
+public:
+  MHZ19C();
+};
+
+
+class MHZ19D : public MHZCO2
+{
+public:
+  MHZ19D();
+};
+
+class MHZ19E : public MHZCO2
+{
+public:
+  MHZ19E();
 };
 
 

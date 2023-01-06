@@ -21,6 +21,40 @@ The base class is based upon the MHZ19B specification. This might change in the 
 Reference: user manual MHZ129B 2019-04-25 version 1.4 
 
 
+#### Compatibles
+
+This list is not verified although these should be compatible.
+
+|  type      |  range       | precision  |  notes  |
+|:-----------|:------------:|:----------:|:--------|
+|  MHZ1311A  |  400.. 2000  | 50ppm + 5% | energy saving version
+|  MHZ1311A  |  400.. 5000  | 50ppm + 5% | energy saving version
+|  MHZ1311A  |  400..10000  | 50ppm + 5% | energy saving version
+|  MHZ19     |  400.. 2000  | 50ppm + 5% | 
+|  MHZ19     |  400.. 5000  | 50ppm + 5% | 
+|  MHZ19B    |  400.. 2000  | 50ppm + 3% | 
+|  MHZ19B    |  400.. 5000  | 50ppm + 3% | 
+|  MHZ19B    |  400..10000  | 50ppm + 3% | 
+|  MHZ19C    |  400.. 2000  | 50ppm + 5% | 
+|  MHZ19C    |  400.. 5000  | 50ppm + 5% | 
+|  MHZ19C    |  400..10000  | 50ppm + 5% | 
+|  MHZ19D    |  400.. 2000  | 50ppm + 5% | 
+|  MHZ19D    |  400.. 5000  | 50ppm + 5% | 
+|  MHZ19D    |  400..10000  | 50ppm + 5% | 
+|  MHZ19E    |  400.. 2000  | 50ppm + 5% | 
+|  MHZ19E    |  400.. 5000  | 50ppm + 5% | 
+|  MHZ19E    |  400..10000  | 50ppm + 5% | 
+
+Note: The calibration of the MHZ1311A is different than MHZ19x series
+
+If there are compatible devices missing in this list, please let me know.
+
+#### Links
+
+- https://emariete.com/en/sensor-co2-mh-z19b/
+- https://emariete.com/en/sensor-co2-low-consumption-mh-z1311a-winsen/
+
+
 ## Connection
 
 - check datasheet of your sensor.
