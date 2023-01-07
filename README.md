@@ -13,9 +13,9 @@ Arduino Library for MHZ series CO2 sensors.
 
 ## Description
 
-The MHZCO2 is a library for the MHZ19B CO2 sensor with a Serial (RS232-TTL) interface and compatibles.
+The MHZCO2 is an experimental library for the MHZ19B CO2 sensor with a Serial (RS232-TTL) interface and compatibles.
 
-The library offers a base class and some derived classes that may have specific functionality.
+The library offers a base class and derived classes to prepare for specific functionality.
 The base class is based upon the MHZ19B specification. This might change in the future as compatibles might differ on detail.
 
 Reference: user manual MHZ129B 2019-04-25 version 1.4 
@@ -23,7 +23,7 @@ Reference: user manual MHZ129B 2019-04-25 version 1.4
 
 #### Compatibles
 
-This list is not verified although these should be compatible.
+This list is not verified although these devices should be compatible based upon datasheet.
 
 |  type      | precision  |  notes  |
 |:-----------|:----------:|:--------|
@@ -81,7 +81,7 @@ The latter two might not be supported by all MH sensors.
 
 #### Calibration
 
-**WARNING:** use with care, read datasheet, these commands may disrupt your sensor.
+**WARNING:** use with care, read the datasheet as these commands may disrupt your sensor.
 
 - **void calibrateZero()** Only use when sensor is at least 30 minutes in **400** PPM environment.
 - **void calibrateSpan(uint16_t span)** Only use when sensor is at least 30 minutes in **2000** PPM environment.
@@ -99,12 +99,12 @@ The latter two might not be supported by all MH sensors.
 
 #### Should 
 - plotter example
-
+- check 3000 PPM
 
 #### Could
 - extend unit tests
 - add type info for derived classes?
-
+- save RAM? possible?
 
 #### Won't
 

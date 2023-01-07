@@ -1,19 +1,12 @@
 //
-//    FILE: MHZCO2_sw_serial.ino
+//    FILE: MHZCO2_serial1.ino
 //  AUTHOR: Rob Tillaart
 // VERSION: 0.1.0
-// PURPOSE: demo
+// PURPOSE: demo for MEGA / 2560 with Serial1
 //    DATE: 2020-09-01
 
 
-#include "SoftwareSerial.h"
 #include "MHZCO2.h"
-
-
-const int TX = 4;
-const int RX = 5;
-SoftwareSerial ss(TX, RX);
-
 
 MHZ19B MHZ19B;
 
@@ -21,10 +14,11 @@ MHZ19B MHZ19B;
 void setup()
 {
   Serial.begin(115200);
-  Serial.println(__FILE__);
+  //   Serial.println(__FILE__);
 
-  MHZ19B.begin(&ss);
-  ss.begin(9600);
+  MHZ19B.begin(&Serial1);
+  Serial1.begin(9600);
+  
 }
 
 

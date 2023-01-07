@@ -17,7 +17,6 @@
 #define MHZCO2_ERROR_CRC          -11
 
 
-
 class MHZCO2
 {
 public:
@@ -27,7 +26,7 @@ public:
   uint32_t uptime();
 
   //  PPM = 2000, 5000, 10000 (other values unknown)
-  //  check datasheet 
+  //  check datasheet
   void     setPPM(uint16_t PPM);
   uint16_t getPPM();
 

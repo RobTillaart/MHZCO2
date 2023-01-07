@@ -8,13 +8,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.1.1] - 2023-06-01
 - rename to MHZCO2
-- refactor
+- create derived classes
+- move code from .h to .cpp
+- add lastMeasurement()
+- improve documentation
+- refactor, rewrite, optimize
 
 
 ## [0.1.x] - 2020-09-01
-- add examples
+- add PWM and analog examples for MHZ19B
 
 ## [0.1.0] - 2020-05-05
-- initial version
-- rewrite whole class.
+- initial version (MHZ19B)
+
 
