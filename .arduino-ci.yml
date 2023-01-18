@@ -28,4 +28,4 @@ compile:
 
   #  external libraries
   libraries:
-    - SoftwareSerial
+  #  - SoftwareSerial  #  does not work
