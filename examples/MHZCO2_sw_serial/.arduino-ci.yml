@@ -27,5 +27,5 @@ compile:
     - rpipico
   #  external libraries
   libraries:
-    # - "SoftwareSerial" does not work
+    # - "SoftwareSerial" does not work as it is build in.
 
