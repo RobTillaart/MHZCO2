@@ -5,6 +5,10 @@
 //    DATE: 2020-09-01
 
 
+#include "Arduino.h"
+#include "MHZCO2.h"
+
+
 /*
    DATASHEET P.7
    Conversion between analog voltage output and concentration,

@@ -6,6 +6,7 @@
 
 
 #include "SoftwareSerial.h"
+#include "Arduino.h"
 #include "MHZCO2.h"
 
 

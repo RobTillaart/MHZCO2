@@ -5,7 +5,9 @@
 //    DATE: 2020-09-01
 
 
+#include "Arduino.h"
 #include "MHZCO2.h"
+
 
 MHZ19B MHZ19B;
 

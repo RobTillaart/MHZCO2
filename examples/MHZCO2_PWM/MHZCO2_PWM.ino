@@ -13,6 +13,8 @@
 
 
 #include "Arduino.h"
+#include "MHZCO2.h"
+
 
 //  adjust to calibrate.
 const float MAX_CONCENTRATION = 2000.0;
