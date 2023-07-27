@@ -1,7 +1,6 @@
 //
 //    FILE: MHZCO2_PWM.ino
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.0
 // PURPOSE: demo MHZ library / sensor
 //    DATE: 2020-09-01
 
@@ -30,7 +29,7 @@ void IRQ()
 }
 
 
-uint16_t PWM_conc()
+uint16_t PWM_concentration()
 {
   noInterrupts();
   uint16_t TimeHigh = width;  //  milliseconds
@@ -45,14 +44,16 @@ void setup()
 {
   Serial.begin(115200);
   Serial.println(__FILE__);
-
+  Serial.print("MHZCO2_LIB_VERSION: ");
+  Serial.println(MHZCO2_LIB_VERSION);
+  
   attachInterrupt(digitalPinToInterrupt(3), IRQ, CHANGE);
 }
 
 
 void loop()
 {
-  Serial.println(PWM_conc());
+  Serial.println(PWM_concentration());
   delay(1000);
 }
 

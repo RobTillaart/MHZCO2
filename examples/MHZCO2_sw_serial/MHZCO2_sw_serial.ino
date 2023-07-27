@@ -1,7 +1,6 @@
 //
 //    FILE: MHZCO2_sw_serial.ino
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.0
 // PURPOSE: demo
 //    DATE: 2020-09-01
 
@@ -22,6 +21,8 @@ void setup()
 {
   Serial.begin(115200);
   Serial.println(__FILE__);
+  Serial.print("MHZCO2_LIB_VERSION: ");
+  Serial.println(MHZCO2_LIB_VERSION);
 
   MHZ19B.begin(&ss);
   ss.begin(9600);
