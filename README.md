@@ -25,6 +25,11 @@ This might change in the future as compatibles might differ on detail.
 
 Reference: user manual MHZ129B 2019-04-25 version 1.4
 
+#### Version 0.2.0
+
+Version 0.2.0 fixes a bug in **setPPM()** which makes older versions obsolete.
+
+
 #### Compatibles
 
 This list is not verified although these devices should be compatible based upon datasheet.
@@ -85,7 +90,8 @@ or a softwareSerial port.
 
 #### Measure
 
-- **int measure()** workhorse, send command to read the sensor.
+- **int measure()** workhorse, send command to read the sensor and 
+waits until an answer is received. Return values see below.
 - **uint32_t lastMeasurement()** timestamp in milliseconds of last measurement.
 - **int getCO2()** returns CO2 PPM last measurement.
 - **int getTemperature()** returns temperature last measurement.
@@ -93,6 +99,16 @@ or a softwareSerial port.
 - **int getMinCO2()** returns minCO2 last measurement.
 
 The latter two might not be supported by all MH sensors.
+
+
+Return values of **measure()**
+
+|  value  |  Name              |  Description  |
+|:-------:|:------------------:|:--------------|
+|    0    |  MHZCO2_OK         | measurement succeeded.
+|   -10   |  MHZCO2_TIMEOUT    | to too long to receive an answer
+|   -11   |  MHZCO2_ERROR_CRC  | Checksum error, handle answer with care.
+
 
 #### Calibration
 
@@ -118,7 +134,6 @@ See - https://keelingcurve.ucsd.edu/
 - improve documentation
 - buy hardware MHZ19B / MHZ19C
 - test with hardware
-- verify checksum
 - verify timeout
 
 
@@ -130,6 +145,8 @@ See - https://keelingcurve.ucsd.edu/
 
 #### Could
 
+- investigate configurable timeout. now hardcoded 1 second.
+  - 2 bytes + 2 functions.
 - extend unit tests
 - add type info for derived classes?
   - A .. E ?
