@@ -34,14 +34,24 @@ Version 0.2.0 fixes a bug in **setPPM()** which makes older versions obsolete.
 
 This list is not verified although these devices should be compatible based upon datasheet.
 
+There exists different models of 400-2000 PPM and 400-5000 PPM and 400-10000 PPM. 
+As far as known these have the same interface as there is very little information to be found.
+
+
 |  type      | precision  |  notes  |
 |:-----------|:----------:|:--------|
 |  MHZ1311A  | 50ppm + 5% | energy saving version
 |  MHZ19     | 50ppm + 5% | 
 |  MHZ19B    | 50ppm + 3% | test device
-|  MHZ19C    | 50ppm + 5% | 
+|  MHZ19C    | 50ppm + 5% | (1)
 |  MHZ19D    | 50ppm + 5% | 
 |  MHZ19E    | 50ppm + 5% |
+
+Note (1):
+There exists different models of the MHZ19C and probably others. 
+The range can go from 400-2000 PPM, 400-5000 PPM and 400-10000 PPM. 
+As far as known these have the same interface as there is very little 
+information to be found. See #9.
 
 Note: The calibration of the MHZ1311A is different than MHZ19x series
 
