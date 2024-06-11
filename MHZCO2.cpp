@@ -56,8 +56,6 @@ uint16_t MHZCO2::getPPM()
 
 int MHZCO2::measure()
 {
-  _lastMeasurement = millis();
-
   uint8_t data[9] = {0xFF, 0x01, 0x86, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
   data[8] = checksum(data);
   send(data, 9);
@@ -71,7 +69,10 @@ int MHZCO2::measure()
     _accuracy    = data[5];
     _minCO2      = data[6] * 256 + data[7];
   }
-
+  if (rv == MHZCO2_OK)
+  {
+    _lastMeasurement = millis();
+  }
   return rv;
 }
 
