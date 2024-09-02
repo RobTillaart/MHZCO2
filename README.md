@@ -61,7 +61,7 @@ If there are compatible devices missing in this list, please let me know.
 In previous versions the MTP40F was incorrectly mentioned as compatible.
 
 
-#### Links
+#### Related
 
 - https://emariete.com/en/sensor-co2-mh-z19b/
 - https://emariete.com/en/sensor-co2-low-consumption-mh-z1311a-winsen/

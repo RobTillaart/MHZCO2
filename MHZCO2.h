@@ -55,7 +55,7 @@ public:
 
 
 protected:
-  Stream * _str;
+  Stream * _str         = NULL;
   uint32_t _startTime   = 0;
   uint32_t _lastMeasurement = 0;
   uint16_t _timeout     = 1000;

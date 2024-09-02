@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - add **void setTimeOut(uint16_t timeout = 1000)** to configure timeout
 - add **uint16_t getTimeOut()**
 - add example **MHZCO2_sw_serial_timeout.ino**.
+- update unit tests
 - update readme.md
 - minor edits
 
