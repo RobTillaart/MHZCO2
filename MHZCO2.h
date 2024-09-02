@@ -56,9 +56,9 @@ public:
 
 protected:
   Stream * _str;
-  uint32_t _startTime;
-  uint32_t _lastMeasurement;
-  uint16_t _timeout;
+  uint32_t _startTime   = 0;
+  uint32_t _lastMeasurement = 0;
+  uint16_t _timeout     = 1000;
 
   uint16_t _PPM         = 0;
   int      _CO2         = 0;

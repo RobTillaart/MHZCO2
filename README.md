@@ -90,6 +90,7 @@ In previous versions the MTP40F was incorrectly mentioned as compatible.
 - **MHZ19()** constructor. Also 19B, C, D, E
 - **void begin(Stream \* str)** set the Serial port to use, e.g Serial1,
 or a softwareSerial port.
+**begin()** also resets all internal variables.
 - **uint32_t uptime()** returns milliseconds since 'instantiation'.
 
 

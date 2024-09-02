@@ -58,6 +58,8 @@ unittest(test_functions_no_measurement)
 {
   MHZCO2 A;
 
+  A.begin(&Serial);
+
   //  verify default
   assertEqual(0, A.getPPM());
   assertEqual(0, A.getCO2());
@@ -70,6 +72,8 @@ unittest(test_functions_no_measurement)
 unittest(test_timeout)
 {
   MHZCO2 A;
+
+  A.begin(&Serial);
 
   //  verify default
   assertEqual(1000, A.getTimeOut());
