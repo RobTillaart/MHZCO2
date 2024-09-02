@@ -25,12 +25,13 @@ This might change in the future as compatibles might differ on detail.
 
 Reference: user manual MHZ129B 2019-04-25 version 1.4
 
-#### Version 0.2.0
+
+### Version 0.2.0
 
 Version 0.2.0 fixes a bug in **setPPM()** which makes older versions obsolete.
 
 
-#### Compatibles
+### Compatibles
 
 This list is not verified although these devices should be compatible based upon datasheet.
 
@@ -83,7 +84,7 @@ In previous versions the MTP40F was incorrectly mentioned as compatible.
 #include "MHZCO2.h"
 ```
 
-#### Constructor
+### Constructor
 
 - **MHZCO2()** base class constructor.
 - **MHZ19()** constructor. Also 19B, C, D, E
@@ -92,35 +93,50 @@ or a softwareSerial port.
 - **uint32_t uptime()** returns milliseconds since 'instantiation'.
 
 
-#### Range
+### Range
 
-- **void setPPM(uint16_t PPM)** PPM = 2000, 5000, 10000.
-- **uint16_t getPPM()** returns (cached) PPM value.
+To set the max range of the actual sensor.
+
+- **void setPPM(uint16_t PPM)** PPM = 2000, 5000, 10000. 
+The value set is persistent over reboots (see issue #9).
+- **uint16_t getPPM()** returns the cached PPM value.
+Note: initially this function returns zero / 0 as the cache is not 
+filled by **setPPM()** yet.
 
 
-#### Measure
+### Measure
 
 - **int measure()** workhorse, send command to read the sensor and 
 waits until an answer is received. Return values see below.
 - **uint32_t lastMeasurement()** timestamp in milliseconds of last measurement.
 - **int getCO2()** returns CO2 PPM last measurement.
 - **int getTemperature()** returns temperature last measurement.
+Note that the temperature can be negative.
 - **int getAccuracy()** returns accuracy last measurement.
+Note: check datasheet.
 - **int getMinCO2()** returns minCO2 last measurement.
 
 The latter two might not be supported by all MH sensors.
 
-
-Return values of **measure()**
+#### Return values of **measure()**
 
 |  value  |  Name              |  Description  |
 |:-------:|:------------------:|:--------------|
 |    0    |  MHZCO2_OK         | measurement succeeded.
-|   -10   |  MHZCO2_TIMEOUT    | to too long to receive an answer
+|   -10   |  MHZCO2_TIMEOUT    | took too long to receive an answer.
 |   -11   |  MHZCO2_ERROR_CRC  | Checksum error, handle answer with care.
 
 
-#### Calibration
+#### CRC error
+
+In case of an checksum error the values received may be corrupted.
+Best strategy is to ignore the measurement. However this is not always
+possible so a strategy might be to compare the values of the measurement 
+with the previous ones. 
+Often one can determine the failing ones but definitely not always.
+
+
+### Calibration
 
 **WARNING:** use with care, read the datasheet as these commands may disrupt your sensor.
 
@@ -137,6 +153,23 @@ The University of San Diego keeps track of CO2 for a long time now.
 See - https://keelingcurve.ucsd.edu/ 
 
 
+### Timeout
+
+These functions are used to set the default timeout in the receive function.
+The faster the baud rate used, the smaller this value can be. As the **receive()** 
+call has to read 9 bytes at (default) 9600 baud. This is max 1 character per 
+millisecond. To receive 9 bytes one needs therefore at least 10 to 15 milliseconds
+under ideal circumstances. So setting the timeout lower makes little sense.
+
+If the timeout is set to zero / 0 there will be no time out checking. 
+
+Use with care!
+
+- **void setTimeOut(uint16_t timeout = 1000)** set the stream reading timeout, 
+defaults to 1000 milliseconds.
+- **uint16_t getTimeOut()** returns the set stream reading timeout.
+
+
 ## Future
 
 #### Must
@@ -146,22 +179,25 @@ See - https://keelingcurve.ucsd.edu/
 - test with hardware
 - verify timeout
 
-
 #### Should
 
-- check 3000 PPM
-- fix SoftwareSerial - https://github.com/Arduino-CI/arduino_ci/issues/346
-
+- check 5000 and 10000 PPM and possible others?
+  - is there an effect on the PWM output.
+- should the PPM be a parameter of the constructor?
+  - default to 2000? or model based?
 
 #### Could
 
-- investigate configurable timeout. now hardcoded 1 second.
-  - 2 bytes + 2 functions.
-- extend unit tests
 - add type info for derived classes?
   - A .. E ?
 - save RAM? possible?
-
+  - all arrays start with 0xFF, 0x01
+  - reduce data types?
+- **uint16_t send()** could return bytes send?
+  - would allow higher level functions to check.
+- add **int maxCO2()** by keeping track myself?
+- extend unit tests if needed.
+- fix SoftwareSerial - https://github.com/Arduino-CI/arduino_ci/issues/346
 
 #### Won't
 
