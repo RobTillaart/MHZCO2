@@ -26,6 +26,12 @@ This might change in the future as compatibles might differ on detail.
 Reference: user manual MHZ129B 2019-04-25 version 1.4
 
 
+### Version 0.2.1
+
+Minor breaking change as **Measure()** will only update lastMeasurement
+in case the measurement was successful. See #11.
+
+
 ### Version 0.2.0
 
 Version 0.2.0 fixes a bug in **setPPM()** which makes older versions obsolete.
@@ -61,7 +67,7 @@ If there are compatible devices missing in this list, please let me know.
 In previous versions the MTP40F was incorrectly mentioned as compatible.
 
 
-#### Related
+### Related
 
 - https://emariete.com/en/sensor-co2-mh-z19b/
 - https://emariete.com/en/sensor-co2-low-consumption-mh-z1311a-winsen/
