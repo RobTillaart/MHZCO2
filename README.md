@@ -115,6 +115,7 @@ filled by **setPPM()** yet.
 
 - **int measure()** workhorse, send command to read the sensor and 
 waits until an answer is received. Return values see below.
+Will only update lastMeasurement if the measurement is successful (0.2.1)
 - **uint32_t lastMeasurement()** timestamp in milliseconds of last measurement.
 - **int getCO2()** returns CO2 PPM last measurement.
 - **int getTemperature()** returns temperature last measurement.
